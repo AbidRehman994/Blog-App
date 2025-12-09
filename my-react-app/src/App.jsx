@@ -53,9 +53,3 @@ export default App;
 
 
 
-
-// Using State(useState hook)
-
-
-
-
