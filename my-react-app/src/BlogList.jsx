@@ -1,8 +1,5 @@
 
 const BlogList=({blogs,title,handleDelete})=>{
-// const BlogList=(props)=>{          //other method of importing props
-    // const blogs=props.blogs;     
-    // const title=props.title;
 
     return(
         <div className="blog-list">

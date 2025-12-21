@@ -1,0 +1,17 @@
+{
+    "blogs":[
+        {
+            "title":"My blog 1",
+            "body":" lorem ipsum lorem ipsumlorem ipsum lorem ipsum",
+            "author":"abid",
+            "id":1
+
+        },
+        {
+             "title":"My blog 1",
+            "body":" lorem ipsum lorem ipsumlorem ipsum lorem ipsum",
+            "author":"abid",
+            "id":1
+        }
+    ]
+}
