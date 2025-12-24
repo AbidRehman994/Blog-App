@@ -1,24 +1,34 @@
 import {useEffect, useState} from 'react';
 import BlogList from './BlogList';
+
 //Home function declaration
 const Home=()=>{
-  const[blogs,setBlogs]=useState([
-    {title:'Co-existence in existential crises',body:'the time we started',author:'Abid',id:1},
-    {title:'From neanderthals to homo-sapiens',body:'foragers were made',author:'Yuval Harrari',id:2},
-    {title:'Thinking big in modern world',body:'the human machine,brains',author:'Abid',id:3},
-  ]);
+  const[blogs,setBlogs]=useState(null);
+  const[isPending,setisPending]=useState(true);
+
   const handleDelete=(id)=>{
     const newBlogs=blogs.filter(blog=>blog.id!== id);
     setBlogs(newBlogs);
   }
+
   useEffect(()=>{
-  console.log("running")
+  fetch('http://localhost:8000/blogs')
+  .then(res=>{
+    return res.json()
+  })
+  .then(data=>{
+    console.log(data)
+    setBlogs(data)
+    setisPending(false);
+  })
   },[]);
+
   return(
     <div className="home">
-    <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>   
+      {isPending && <div>Loading...</div>}
+   {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>}   
     {/*filtering*/}
-    <BlogList blogs={blogs.filter((blog)=>blog.author==='Abid')} title="Abid's blogs"/>     
+    {blogs && <BlogList blogs={blogs.filter((blog)=>blog.author==='Abid')} title="Abid's blogs"/>  }   
 
     </div>
   )

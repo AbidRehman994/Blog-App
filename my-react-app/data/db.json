@@ -3,14 +3,20 @@
         {
             "title":"My blog 1",
             "body":" lorem ipsum lorem ipsumlorem ipsum lorem ipsum",
-            "author":"abid",
+            "author":"Abid",
             "id":1
 
         },
         {
-             "title":"My blog 1",
+             "title":"My blog 2",
             "body":" lorem ipsum lorem ipsumlorem ipsum lorem ipsum",
-            "author":"abid",
+            "author":"Abid",
+            "id":1
+        },
+        {
+             "title":"My blog 3",
+            "body":" lorem ipsum lorem ipsumlorem ipsum lorem ipsum",
+            "author":"hamid",
             "id":1
         }
     ]
