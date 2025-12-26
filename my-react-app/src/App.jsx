@@ -3,15 +3,27 @@
 
 import './index.css';
 import Navbar from './Navbar';
-import Home from './Home'
+import Home from './Home';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import Create from "./Create";
+
 function App(){
   return(
+    <Router>
    <div className='App'>
-    <Navbar></Navbar>       
+    <Navbar/>       
     <div className="content">
-    <Home></Home>
+    <Switch>
+      <Route exact path="/">
+       <Home/>
+      </Route>
+      <Route path="/Create">
+      <Create/>
+      </Route>
+    </Switch>
     </div>
    </div>
+   </Router>
   );
 }
 export default App;
