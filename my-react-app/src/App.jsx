@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Create from "./Create";
+import Contact from './Contact';
 
 function App(){
   return(
@@ -19,6 +20,9 @@ function App(){
       </Route>
       <Route path="/Create">
       <Create/>
+      </Route>
+       <Route path="/Contact">
+      <Contact/>
       </Route>
     </Switch>
     </div>
