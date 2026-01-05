@@ -1,2 +1,2 @@
 # Blog-App
-My React Blog App
+My MERN Blog App
