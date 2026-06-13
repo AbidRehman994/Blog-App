@@ -9,6 +9,7 @@ const {data: blogs,isPending,Error}=useFetch("http://localhost:8000/blogs");
   return(
     <div className="home">
       {Error && <div>{Error}</div>}
+      {/* conditional loading */}
       {isPending && <div>Loading...</div>}
    {blogs && <BlogList blogs={blogs} title="All Blogs" />}   
     {/*filtering Abid's blogs*/}
