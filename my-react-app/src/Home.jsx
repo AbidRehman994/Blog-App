@@ -4,11 +4,11 @@ import useFetch from './useFetch';
 
 //Home function declaration
 const Home=()=>{
-const {data: blogs,isPending,Error}=useFetch("http://localhost:8000/blogs");
+const {data: blogs,isPending,error}=useFetch("http://localhost:5000/api/blogs");
 
   return(
     <div className="home">
-      {Error && <div>{Error}</div>}
+      {error && <div>{error}</div>}
       {/* conditional loading */}
       {isPending && <div>Loading...</div>}
    {blogs && <BlogList blogs={blogs} title="All Blogs" />}   
