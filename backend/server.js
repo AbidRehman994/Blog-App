@@ -1,10 +1,13 @@
- const http = require('http');
+const express= require('express');
 
- //creating manual server
- const server=http.createServer((req,res)=>{
-  console.log('req made')
- });
- //listening reqs
- server.listen(3000,'localhost',()=>{
-  console.log('listening for reqs')
- });
+//express app
+const app = express();
+
+//listen for requests
+app.listen(5000,()=>{
+  console.log('listening on port 5000')
+});
+
+app.get('/',(req,res)=>{
+  res.send('Hello')
+})
