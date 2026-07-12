@@ -3,11 +3,11 @@ const express = require('express');
 const router = express.Router()
 
 router.get('/',(req,res)=>{
-    req.json({msg:'GET all blogs'})
+    res.json({msg:'GET all blogs'})
 })
 
 //Single blog
-router.get('/:id',(req,res)=>{
+router.get ('/:id',(req,res)=>{
     res.json({msg:'GET a single blog'})
 })
 
@@ -26,4 +26,4 @@ router.patch('/:id',(req,res)=>{
     res.json({msg:'UPDATE a Blog'})
 })
 
-module.exports = router
+module.exports = router;
