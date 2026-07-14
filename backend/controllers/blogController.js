@@ -1,4 +1,5 @@
-const blog = require('../models/blog');
+const Blog = require('../models/blog');
+const mongoose = require('mongoose')
 
 //get all blogs
 const getBlogs = async (req,res)=>{
@@ -9,8 +10,11 @@ const getBlogs = async (req,res)=>{
 //get a single blog
 const getBlog=async (req,res)=>{
     const {id} =req.params
-
-    const blog = await blog.findByID(id)
+//if id doesn't match
+if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(404).json({error:"no such blog"})
+}
+    const blog = await Blog.findById(id)
 
     if(!blog){
         return res.status(404).json({error:'No such blog'})
