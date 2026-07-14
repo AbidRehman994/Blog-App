@@ -18,7 +18,7 @@ app.use((req,res,next)=>{
 app.use('/api/blogs',blogRoutes)
 
 //connect to Database
-mongoose.connect(process.env.MONGo_URI)       //takes time so promise
+mongoose.connect(process.env.MONGO_URI)       //takes time so promise
 .then(()=>{
   //listen for requests
 app.listen(process.env.PORT,()=>{
@@ -28,10 +28,4 @@ app.listen(process.env.PORT,()=>{
 .catch((error)=>{
   console.log(error)
 })
-
-
-//listen for requests
-app.listen(process.env.PORT,()=>{
-  console.log('connected to DB & listening on port',process.env.PORT)
-});
 
