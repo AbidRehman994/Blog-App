@@ -1,0 +1,41 @@
+const blog = require('../models/blog');
+
+//get all blogs
+const getBlogs = async (req,res)=>{
+    const blogs = await blog.find({}).sort({createdAt: -1})
+    res.status(200).json(blogs)
+}
+
+//get a single blog
+const getBlog=async (req,res)=>{
+    const {id} =req.params
+
+    const blog = await blog.findByID(id)
+
+    if(!blog){
+        return res.status(404).json({error:'No such blog'})
+    }
+    res.status(200).json(blog)
+}
+//create new blog
+const createBlog=async(req,res)=>{
+     const {title,body,author} = req.body
+
+     //add doc to db
+    try{
+        const newBlog = await blog.create({title,body,author})
+        res.status(200).json(newBlog)
+
+    }catch(error){
+     res.status(400).json({error: error.message})
+    }
+}
+//delete a blog
+
+//update a blog
+
+module.exports={
+    getBlogs,
+    getBlog,
+    createBlog
+}
