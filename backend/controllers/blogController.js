@@ -23,7 +23,7 @@ const createBlog=async(req,res)=>{
 
      //add doc to db
     try{
-        const newBlog = await blog.create({title,body,author})
+        const newBlog = await Blog.create({title,body,author})
         res.status(200).json(newBlog)
 
     }catch(error){
