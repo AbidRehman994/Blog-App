@@ -45,26 +45,28 @@ const Create = () => {
   };
 
   return (
-    <div className="create">
-      <h2>Add a New Blog</h2>
+    <div className="max-w-md mx-auto text-center">
+      <h2  className="text-xl text-pink-600 mb-8 font-semibold">Add a New Blog</h2>
 
       <form onSubmit={handleSubmit}>
-        <label>Blog title:</label>
+        <label className="block text-left font-medium mb-1">Blog title:</label>
         <input
+        className="w-full px-3 py-2 my-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
           type="text"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Blog body:</label>
+        <label className="block text-left font-medium mb-1">Blog body:</label>
         <textarea
+         className="w-full px-3 py-2 my-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
           required
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
 
-        <label>Blog author:</label>
+        <label className="block text-left font-medium mb-1">Blog author:</label>
         <select
           value={author}
           onChange={(e) => setAuthor(e.target.value)}

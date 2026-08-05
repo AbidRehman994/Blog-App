@@ -15,7 +15,7 @@ function App(){
     <Router>
    <div className='App'>
     <Navbar/>       
-    <div className="content">
+    <div className="w-full max-w-full mx-auto my-10 p-5">
     <Switch>
       <Route exact path="/">
        <Home/>
