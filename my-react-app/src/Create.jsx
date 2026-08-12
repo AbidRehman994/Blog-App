@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("Abid"); // Fixed
+  // const [author, setAuthor] = useState("Abid"); // Fixed
   const [isPending, setIsPending] = useState(false);
 
   const history = useHistory();
@@ -15,7 +15,7 @@ const Create = () => {
     const blog = {
       title,
       body,
-      author,
+      author:"Abid",
     };
 
     setIsPending(true);
@@ -66,7 +66,7 @@ const Create = () => {
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
 
-        <label className="block text-left font-medium mb-1">Blog author:</label>
+        {/* <label className="block text-left font-medium mb-1">Blog author:</label>
         <select
         className="w-full px-3 py-2 my-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
           value={author}
@@ -74,7 +74,7 @@ const Create = () => {
         >
           <option value="Abid">Abid</option>
           <option value="Hamid">Hamid</option>
-        </select>
+        </select> */}
 
         {!isPending && <button  className="bg-pink-600 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-pink-700 transition-colors">Add Blog</button>}
         {isPending && <button disabled 
