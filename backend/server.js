@@ -3,23 +3,24 @@ require('dotenv').config()
 const express= require('express');
 const mongoose=require('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
+const userRoutes = require("./routes/userRoutes");
 
 //express app
 const app = express();
 
 //middleware
 app.use(express.json())
+app.use(cors());
 
 app.use((req,res,next)=>{
   console.log(req.path, req.method)
   next()
 })
 
-app.use(cors());
-app.use(express.json());
 
 //route handler: react to reqs 
 app.use('/api/blogs',blogRoutes)
+app.use('/api/user',userRoutes)
 
 //connect to Database
 mongoose.connect(process.env.MONGO_URI)       //takes time so promise
