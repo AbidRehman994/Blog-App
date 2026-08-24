@@ -66,16 +66,6 @@ const Create = () => {
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
 
-        {/* <label className="block text-left font-medium mb-1">Blog author:</label>
-        <select
-        className="w-full px-3 py-2 my-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        >
-          <option value="Abid">Abid</option>
-          <option value="Hamid">Hamid</option>
-        </select> */}
-
         {!isPending && <button  className="bg-pink-600 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-pink-700 transition-colors">Add Blog</button>}
         {isPending && <button disabled 
          className="bg-pink-400 text-white px-4 py-2 rounded-lg cursor-not-allowed">Adding Blog...</button>}
