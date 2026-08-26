@@ -11,24 +11,44 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow-md"
+    >
+      <h2 className="text-3xl font-bold text-pink-600 mb-6 text-center">
+        Sign up
+      </h2>
 
-      <label>Email:</label>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        Email
+      </label>
+
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Enter your email"
       />
 
-      <label>Password:</label>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        Password
+      </label>
+
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Create a password"
       />
 
-      <button type="submit">Sign up</button>
+      <button
+        type="submit"
+        className="w-full bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition"
+      >
+        Sign up
+      </button>
     </form>
   );
 };
