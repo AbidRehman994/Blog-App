@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { useSignup } from "./hooks/useSignup";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {signup,error,isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    await signup(email, password);
   };
 
   return (
@@ -43,12 +45,16 @@ const Signup = () => {
         placeholder="Create a password"
       />
 
-      <button
+      <button 
+        disabled = {isLoading}
         type="submit"
         className="w-full bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition"
       >
         Sign up
       </button>
+      {error && <div
+       className="mt-3 rounded-md bg-red-50 border border-red-200 px-4 py-2 text-sm text-red-600">
+      {error} </div>}
     </form>
   );
 };
