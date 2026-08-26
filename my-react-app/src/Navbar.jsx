@@ -31,6 +31,14 @@ const Navbar = () => {
           Contact Us
         </Link>
 
+        <Link to="/login" className="p-1.5 hover:text-pink-600">
+          Login
+        </Link>
+
+       <Link to="/signup"className="p-1.5 hover:text-pink-600">
+         Signup
+       </Link>
+
       </div>
 
     </nav>

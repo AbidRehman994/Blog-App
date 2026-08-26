@@ -9,6 +9,8 @@ import Create from "./Create";
 import Contact from './Contact';
 import BlogDetails from './BlogDetails';
 import NotFound from './NotFound';
+import Signup from './Signup';
+import Login from './Login';
 
 function App(){
   return(
@@ -19,6 +21,12 @@ function App(){
     <Switch>
       <Route exact path="/">
        <Home/>
+      </Route>
+      <Route path="/login">
+      <Login/>
+      </Route>
+      <Route path="/signup">
+      <Signup/>
       </Route>
       <Route path="/Create">
       <Create/>
