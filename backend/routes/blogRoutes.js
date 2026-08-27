@@ -9,6 +9,7 @@ const {
 
 } = require('../controllers/blogController')
 
+const requireAuth = require("../middleware/requireAuth");
 
 const router = express.Router()
 
@@ -18,12 +19,12 @@ router.get('/',getBlogs)
 router.get ('/:id',getBlog)
 
 //POST a new blog
-router.post('/', createBlog)
+router.post('/', requireAuth, createBlog)
 
 //Delete a blog
-router.delete('/:id',deleteBlog)
+router.delete('/:id',requireAuth, deleteBlog)
 
 //UPDATE a blog
-router.patch('/:id',updateBlog)
+// router.patch('/:id',updateBlog)
 
 module.exports = router;
