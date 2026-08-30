@@ -19,11 +19,11 @@ const getBlog=async (req,res)=>{
 
 //create new blog
 const createBlog=async(req,res)=>{
-     const {title,body,author} = req.body
+     const {title,body} = req.body
 
      //add doc to db
     try{
-        const newBlog = await Blog.create({title,body,author})
+        const newBlog = await Blog.create({title,body, author: req.user.email})
         res.status(200).json(newBlog)
 
     }catch(error){

@@ -1,23 +1,31 @@
 import { Link } from "react-router-dom";
-import { useLogout } from "./hooks/useLogout";
 import { useAuthContext } from "./hooks/useAuthContext";
+import { useLogout } from "./hooks/useLogout";
+import { useState } from "react";
 
 const Navbar = () => {
-  const {logout} = useLogout()
-  const {user} = useAuthContext()
-
-  const handleClick = () =>{
-     logout()
-  }
+  const { user } = useAuthContext();
+  const { logout } = useLogout();
+  const [menuOpen, setMenuOpen] = useState(false);
+   
   return (
-    <nav className="sticky top-0 z-50 flex flex-col md:flex-row md:items-center md:justify-between p-5 border-b border-gray-200 bg-white">
-
-      <h1 className="text-3xl font-bold text-pink-600">
+    <nav className="sticky top-0 z-50 flex flex-wrap items-center justify-between p-5 border-b border-gray-200 bg-white">
+      <h1 className="text-2xl md:text-3xl font-bold text-pink-600">
         The Dummy Blog
       </h1>
+    
+    {/* Add hamburger button */}
+    <button
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="md:hidden text-2xl"
+>
+  {menuOpen ? "✕" : "☰"}
+</button>
 
-      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-
+      <div className={`${
+  menuOpen ? "flex" : "hidden"
+} w-full flex-col items-center gap-4 pt-4 md:flex md:w-auto md:flex-row md:gap-6 md:pt-0`}
+        >
         <Link
           to="/"
           className="p-1.5 hover:text-pink-600"
@@ -25,39 +33,51 @@ const Navbar = () => {
           Home
         </Link>
 
-        <Link
-          to="/create"
-          className="p-1.5 hover:text-pink-600"
-        >
-          New Blog
-        </Link>
+        {/* Only logged in */}
+        {user && (
+          <Link
+            to="/create"
+            className="p-1.5 hover:text-pink-600"
+          >
+            New Blog
+          </Link>
+        )}
 
+        {/* Always visible */}
         <Link
           to="/contact"
           className="p-1.5 hover:text-pink-600"
         >
           Contact Us
         </Link>
-    {user && (
-      <div>
-        <span>{user.email}</span>
-        <button onClick={handleClick}
-        className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition duration-200"
-        >Logout</button>
-        </div>
+
+        {/* Only logged out */}
+        {!user && (
+          <>
+            <Link
+              to="/login"
+              className="px-4 py-1.5 -mt-1 rounded-full border border-blue-600 text-black-600 hover:bg-blue-600 hover:text-white transition"
+            >
+              Login
+            </Link>
+
+            <Link
+              to="/signup"
+              className="px-4 py-1.5 -mt-1 rounded-full border border-blue-600 text-black-600 hover:bg-blue-600 hover:text-white transition"
+            >
+              Signup
+            </Link>
+          </>
         )}
+         {user && (
+    <button
+      onClick={logout}
+     className="px-4 py-1.5 rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition"
+    >
+      Logout
+    </button>
+  )}
 
-
-       {!user && ( <div>
-        <Link to="/login" className="p-1.5 hover:text-pink-600">
-          Login
-        </Link>
-
-       <Link to="/signup"className="p-1.5 hover:text-pink-600">
-         Signup
-       </Link>
-        </div>
-        )}
       </div>
 
     </nav>

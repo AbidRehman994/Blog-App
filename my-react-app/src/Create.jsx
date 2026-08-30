@@ -1,3 +1,4 @@
+import { useAuthContext } from "./hooks/useAuthContext";
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -6,7 +7,7 @@ const Create = () => {
   const [body, setBody] = useState("");
   // const [author, setAuthor] = useState("Abid"); // Fixed
   const [isPending, setIsPending] = useState(false);
-
+ const { user } = useAuthContext();
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -15,7 +16,6 @@ const Create = () => {
     const blog = {
       title,
       body,
-      author:"Abid",
     };
 
     setIsPending(true);
@@ -24,15 +24,17 @@ const Create = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify(blog),
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Failed to create blog");
-        }
-        return res.json();
-      })
+      .then(async (res) => {
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw Error(errorData.error);
+  }
+  return res.json();
+})
       .then((data) => {
         console.log("New blog added:", data);
         setIsPending(false);
