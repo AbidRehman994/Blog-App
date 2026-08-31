@@ -85,11 +85,14 @@ const BlogDetails=()=>{
 
 </div>
 <div className="border-t border-gray-200 mt-6 pt-6"></div>
-      {user && (
-          <button onClick={handleClick}
-          className="bg-pink-600 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-pink-700"
-          >delete</button>
-      )}
+  {user && blog.author === user.email && (
+  <button
+    onClick={handleClick}
+    className="bg-pink-600 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-pink-700"
+  >
+    Delete
+  </button>
+)}
         </article>
        )}
       </div>

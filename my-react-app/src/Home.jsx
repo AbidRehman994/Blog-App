@@ -1,10 +1,13 @@
 import {useEffect, useState} from 'react';
 import BlogList from './BlogList';
 import useFetch from './useFetch';
+import { useAuthContext } from './hooks/useAuthContext';
 
 //Home function declaration
 const Home=()=>{
+  const { user } = useAuthContext();
 const {data: blogs,isPending,error}=useFetch("http://localhost:5000/api/blogs");
+
 
   return(
     <div className="home">
@@ -12,8 +15,8 @@ const {data: blogs,isPending,error}=useFetch("http://localhost:5000/api/blogs");
       {/* conditional loading */}
       {isPending && <div>Loading...</div>}
    {blogs && <BlogList blogs={blogs} title="All Blogs" />}   
-    {/*filtering Abid's blogs*/}
-    {blogs && <BlogList blogs={blogs.filter((blog)=>blog.author==='Abid')} title="Abid's blogs"/>  }   
+    {/*filtering your's blogs*/}
+   {blogs && user && <BlogList blogs={blogs.filter((blog)=>blog.author===user.email)} title="Your Blogs"/>}
 
     </div>
   )

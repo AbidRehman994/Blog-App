@@ -15,19 +15,20 @@ const Navbar = () => {
       </h1>
     
     {/* Add hamburger button */}
+
     <button
   onClick={() => setMenuOpen(!menuOpen)}
-  className="md:hidden text-2xl"
->
+  className="md:hidden text-2xl">
   {menuOpen ? "✕" : "☰"}
-</button>
+   </button>
 
       <div className={`${
-  menuOpen ? "flex" : "hidden"
-} w-full flex-col items-center gap-4 pt-4 md:flex md:w-auto md:flex-row md:gap-6 md:pt-0`}
+   menuOpen ? "flex" : "hidden"
+      } w-full flex-col items-center gap-4 pt-4 md:flex md:w-auto md:flex-row md:gap-6 md:pt-0`}
         >
         <Link
           to="/"
+          onClick={() => setMenuOpen(false)}
           className="p-1.5 hover:text-pink-600"
         >
           Home
@@ -37,6 +38,7 @@ const Navbar = () => {
         {user && (
           <Link
             to="/create"
+            onClick={() => setMenuOpen(false)}
             className="p-1.5 hover:text-pink-600"
           >
             New Blog
@@ -46,6 +48,7 @@ const Navbar = () => {
         {/* Always visible */}
         <Link
           to="/contact"
+          onClick={() => setMenuOpen(false)}
           className="p-1.5 hover:text-pink-600"
         >
           Contact Us
@@ -56,6 +59,7 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
+              onClick={() => setMenuOpen(false)}
               className="px-4 py-1.5 -mt-1 rounded-full border border-blue-600 text-black-600 hover:bg-blue-600 hover:text-white transition"
             >
               Login
@@ -63,6 +67,7 @@ const Navbar = () => {
 
             <Link
               to="/signup"
+              onClick={() => setMenuOpen(false)}
               className="px-4 py-1.5 -mt-1 rounded-full border border-blue-600 text-black-600 hover:bg-blue-600 hover:text-white transition"
             >
               Signup
@@ -71,7 +76,10 @@ const Navbar = () => {
         )}
          {user && (
     <button
-      onClick={logout}
+       onClick={() => {
+         logout();
+         setMenuOpen(false);
+         }}
      className="px-4 py-1.5 rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition"
     >
       Logout

@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useBlogContext } from "./hooks/useBlogContext";
+import { useAuthContext } from "./hooks/useAuthContext";
 const BlogList=({blogs,title,})=>{
+    const { user } = useAuthContext();
+const { dispatch } = useBlogContext();
 
     return(
         <div className="blog-list">
