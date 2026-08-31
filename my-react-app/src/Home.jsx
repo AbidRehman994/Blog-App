@@ -6,7 +6,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 //Home function declaration
 const Home=()=>{
   const { user } = useAuthContext();
-const {data: blogs,isPending,error}=useFetch("http://localhost:5000/api/blogs");
+const {data: blogs,isPending,error}=useFetch("https://blogappbackend-pp3ndxvj.b4a.run/api/blogs");
 
 
   return(

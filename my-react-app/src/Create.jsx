@@ -20,7 +20,7 @@ const Create = () => {
 
     setIsPending(true);
 
-    fetch("http://localhost:5000/api/blogs", {
+    fetch("https://blogappbackend-pp3ndxvj.b4a.run/api/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
