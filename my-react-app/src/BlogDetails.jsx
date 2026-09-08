@@ -12,7 +12,7 @@ const BlogDetails=()=>{
     const history = useHistory();
 
     const handleClick=()=>{
-      fetch("https://paintwork-shady-snake.abasthan.app.run/api/blogs/" + blog._id,{
+      fetch("https://abid-blog-api.bonto.run/api/blogs/" + blog._id,{
         method: "DELETE",
         headers: {
     Authorization: `Bearer ${user.token}`,

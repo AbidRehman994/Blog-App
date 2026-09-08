@@ -20,7 +20,7 @@ const Create = () => {
 
     setIsPending(true);
 
-    fetch("https://paintwork-shady-snake.abasthan.app.run/api/blogs", {
+    fetch("https://abid-blog-api.bonto.run/api/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
