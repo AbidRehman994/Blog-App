@@ -5,7 +5,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 
 const BlogDetails=()=>{
     const {id}=useParams();
-    const {data :blog,error,isPending}=useFetch("https://paintwork-shady-snake.abasthan.app.run/api/blogs/" + id);
+    const {data :blog,error,isPending}=useFetch("https://abid-blog-api.bonto.run/api/blogs/" + id);
 
     const { user } = useAuthContext();
 
