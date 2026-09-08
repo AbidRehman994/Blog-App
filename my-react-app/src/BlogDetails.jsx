@@ -5,14 +5,14 @@ import { useAuthContext } from "./hooks/useAuthContext";
 
 const BlogDetails=()=>{
     const {id}=useParams();
-    const {data :blog,error,isPending}=useFetch("https://blogappbackend-pp3ndxvj.b4a.run/api/blogs/" + id);
+    const {data :blog,error,isPending}=useFetch("https://paintwork-shady-snake.abasthan.app.run/api/blogs/" + id);
 
     const { user } = useAuthContext();
 
     const history = useHistory();
 
     const handleClick=()=>{
-      fetch("https://blogappbackend-pp3ndxvj.b4a.run/api/blogs/" + blog._id,{
+      fetch("https://paintwork-shady-snake.abasthan.app.run/api/blogs/" + blog._id,{
         method: "DELETE",
         headers: {
     Authorization: `Bearer ${user.token}`,
