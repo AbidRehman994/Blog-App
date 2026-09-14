@@ -6,6 +6,10 @@ A full-stack blog application built with the **MERN stack**, featuring user auth
 
 **Frontend:** https://blog-gebn4w9dt-abid-rehman.vercel.app/
 
+Note: The backend is hosted on Bonto's free tier and may sleep after periods of inactivity. The first request may take a few seconds while the server wakes up.
+
+**Backend:** https://abid-blog-api.bonto.run/api/blogs
+
 ## ✨ Features
 
 * 📖 Browse published blogs without an account
