@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Only logged in */}
         {user && (
           <Link
-            to="/create"
+             to={user ? "/create" : "/login"}
             onClick={() => setMenuOpen(false)}
             className="p-1.5 hover:text-pink-600"
           >
