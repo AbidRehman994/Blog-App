@@ -34,10 +34,10 @@ const Navbar = () => {
           Home
         </Link>
 
-        {/* Only logged in */}
+        
         {user && (
           <Link
-             to={user ? "/create" : "/login"}
+             to={user ? "/Create" : "/login"}
             onClick={() => setMenuOpen(false)}
             className="p-1.5 hover:text-pink-600"
           >
