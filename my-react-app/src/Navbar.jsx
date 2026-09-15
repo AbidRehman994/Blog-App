@@ -35,7 +35,7 @@ const Navbar = () => {
         </Link>
 
         
-        {user && (
+        
           <Link
              to={user ? "/Create" : "/login"}
             onClick={() => setMenuOpen(false)}
@@ -43,7 +43,7 @@ const Navbar = () => {
           >
             New Blog
           </Link>
-        )}
+        
 
         {/* Always visible */}
         <Link
